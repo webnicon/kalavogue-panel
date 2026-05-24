@@ -1,0 +1,962 @@
+{
+  "admins": [
+    {
+      "id": "admin-1",
+      "username": "admin",
+      "email": "admin@woo-admin.com",
+      "role": "Super Admin",
+      "passwordHash": "$2b$10$f3.yvM606cHTRD0/m7Nd4.NuOFa/BzQsMaIfMhe1cnSgNN3tn./u2",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      "id": "admin-2",
+      "username": "staff",
+      "email": "staff@woo-admin.com",
+      "role": "Staff Admin",
+      "passwordHash": "$2b$10$f3.yvM606cHTRD0/m7Nd4.NuOFa/BzQsMaIfMhe1cnSgNN3tn./u2",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      "id": "admin-3",
+      "username": "manager",
+      "email": "manager@woo-admin.com",
+      "role": "Product Manager",
+      "passwordHash": "$2b$10$f3.yvM606cHTRD0/m7Nd4.NuOFa/BzQsMaIfMhe1cnSgNN3tn./u2",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+    }
+  ],
+  "products": [
+    {
+      "id": "23061",
+      "name": "Elegant Chanderi Embroidered Ensemble",
+      "description": "<p>Experience timeless elegance with our Chanderi Embroidered Kurta Set, featuring a beautifully crafted Kurta, matching Pants, and a delicate Dupatta. Made from premium Chanderi fabric, this set showcases intricate embroidery, offering a luxurious feel and graceful drape. Perfect for festive occasions, celebrations, and special gatherings, this ensemble blends tradition with sophistication.</p>\n<p>&nbsp;</p>\n<p>100% Original Products</p>\n<p>Pay-on Delivery Might Be Available</p>\n<p>Easy 7-Day Returns and Exchanges</p>\n<p><strong>Product Details </strong></p>\n<p>Elegant Chanderi Embroidered Kurta with Trousers and Dupatta</p>\n<p><strong>Kurta design:</strong></p>\n<ul>\n<li>Gold Polka Printed</li>\n<li>Straight Fit</li>\n<li>3/4 Sleeves</li>\n<li>Calf length with Straight hem</li>\n<li>Viscose Chanderi Silk Machine Weave Fabric</li>\n<li>100% Cotton Lining</li>\n</ul>\n<p><strong>Trousers design:</strong></p>\n<ul>\n<li>Solid Trousers</li>\n<li>Partially Elasticated Waistband</li>\n<li>Slip-On Closure</li>\n<li>Pocket 2</li>\n<li>Viscose PST Machine Weave Fabric</li>\n</ul>\n<p><strong>Dupatta Design:</strong></p>\n<ul>\n<li>Elegant Solid Dupatta with Gota Border</li>\n<li>Machine Weave Net Fabric</li>\n</ul>\n<p><strong>Material:</strong></p>\n<ul>\n<li>Top Fabric: Viscose Chanderi Slik</li>\n<li>Lining Fabric: 100% Cotton</li>\n<li>Bottom Fabric: Viscose PST</li>\n<li>Dupatta Fabric: Net</li>\n</ul>\n",
+      "short_description": "<p>Elegant Chanderi Embroidered Ensemble</p>\n",
+      "price": 3599,
+      "sale_price": 3599,
+      "sku": "SKU-23061",
+      "categories": [
+        "Ethnic Wear",
+        "Ethnic Wear",
+        "Kurta Set",
+        "Kurta Sets",
+        "Kurtas &amp; Suits",
+        "New Arrivals",
+        "New This Week",
+        "Women"
+      ],
+      "tags": [],
+      "stock": 45,
+      "status": "publish",
+      "visibility": "visible",
+      "featured_image": "https://kalavogue.com/wp-content/uploads/2025/03/AS_SS25_KPD_067_FU-11.jpg",
+      "images": [
+        "https://kalavogue.com/wp-content/uploads/2025/03/AS_SS25_KPD_067_FU-11.jpg",
+        "https://kalavogue.com/wp-content/uploads/2025/03/AS_SS25_KPD_067_GR-6.jpg"
+      ],
+      "seo_title": "Elegant Chanderi Embroidered Ensemble | Live WooCommerce",
+      "seo_desc": "Buy Elegant Chanderi Embroidered Ensemble online with premium express delivery options.",
+      "variations": []
+    },
+    {
+      "id": "22960",
+      "name": "Nawab Collection Nehru Jacket",
+      "description": "<p>Experience timeless elegance with the <strong>Nawab Collection</strong>, featuring exquisitely tailored <strong>Nehru jackets</strong> that blend heritage with modern sophistication.</p>\n<ul>\n<li>Made in India</li>\n<li>Yellow</li>\n<li>Self Woven Design</li>\n<li>Cotton Blend</li>\n<li>Mandarian Collar</li>\n<li>Front Button Closure</li>\n<li>Relaxed Fit</li>\n<li>Dry Clean Only</li>\n<li>The Model is wearing Size M</li>\n<li>Interlining : Polyster</li>\n<li>3 Pocket</li>\n</ul>\n",
+      "short_description": "",
+      "price": 1000,
+      "sale_price": 1000,
+      "sku": "RJ_SS25_NJ_001",
+      "categories": [
+        "Indian &amp; Festive Wear",
+        "Men",
+        "Nehru Jacket"
+      ],
+      "tags": [],
+      "stock": 200,
+      "status": "publish",
+      "visibility": "visible",
+      "featured_image": "https://kalavogue.com/wp-content/uploads/2025/03/RJ_SS25_NJ_001_RD-2.jpg",
+      "images": [
+        "https://kalavogue.com/wp-content/uploads/2025/03/RJ_SS25_NJ_001_RD-2.jpg",
+        "https://kalavogue.com/wp-content/uploads/2025/04/check3.png"
+      ],
+      "seo_title": "Nawab Collection Nehru Jacket | Live WooCommerce",
+      "seo_desc": "Buy Nawab Collection Nehru Jacket online with premium express delivery options.",
+      "variations": []
+    },
+    {
+      "id": "20654",
+      "name": "Wallet Topup",
+      "description": "<p>Auto generated product for wallet recharge please do not delete or update.</p>\n",
+      "short_description": "",
+      "price": 0,
+      "sale_price": null,
+      "sku": "SKU-20654",
+      "categories": [
+        "Uncategorized"
+      ],
+      "tags": [],
+      "stock": 45,
+      "status": "publish",
+      "visibility": "hidden",
+      "featured_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+      "images": [],
+      "seo_title": "Wallet Topup | Live WooCommerce",
+      "seo_desc": "Buy Wallet Topup online with premium express delivery options.",
+      "variations": []
+    }
+  ],
+  "users": [
+    {
+      "id": "13",
+      "username": "Kalavogue.fashion",
+      "email": "carrier.afpl@gmail.com",
+      "mobile": "",
+      "role": "customer",
+      "registration_date": "2025-02-07T16:09:23",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    },
+    {
+      "id": "15",
+      "username": "9829042055",
+      "email": "",
+      "mobile": "",
+      "role": "customer",
+      "registration_date": "2025-04-12T15:40:28",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    },
+    {
+      "id": "14",
+      "username": "7665555080",
+      "email": "",
+      "mobile": "",
+      "role": "customer",
+      "registration_date": "2025-04-12T14:54:54",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    },
+    {
+      "id": "18",
+      "username": "rahul",
+      "email": "sorabh70@gmail.com",
+      "mobile": "",
+      "role": "customer",
+      "registration_date": "2026-03-31T15:06:26",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    },
+    {
+      "id": "17",
+      "username": "rahul.limited",
+      "email": "aspriyafashion@gmail.com",
+      "mobile": "9828019228",
+      "role": "customer",
+      "registration_date": "2026-03-31T14:48:11",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    },
+    {
+      "id": "16",
+      "username": "rohitjangid8985",
+      "email": "rohitjangid8985@gmail.com",
+      "mobile": "",
+      "role": "customer",
+      "registration_date": "2025-04-12T15:42:23",
+      "total_orders": 0,
+      "wallet_balance": 0,
+      "status": "active",
+      "order_history": [],
+      "login_logs": []
+    }
+  ],
+  "coupons": [
+    {
+      "id": "23540",
+      "code": "WLR-QM9-U9R",
+      "discount_type": "fixed",
+      "amount": 2400,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "contact@kalavogue.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "538",
+      "code": "CZEK1X",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "364",
+      "code": "89KRPS",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "363",
+      "code": "6CYBU1",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "362",
+      "code": "5HT6Z2",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "11976",
+      "code": "8RRBBR",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "360",
+      "code": "MOFEK5",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "358",
+      "code": "7XVN2S",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "357",
+      "code": "HV0QRR",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "356",
+      "code": "036FPS",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "355",
+      "code": "06YQAL",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "354",
+      "code": "4X19WW",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "353",
+      "code": "ZLCB0V",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "352",
+      "code": "6SJLJC",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "351",
+      "code": "NNF3FN",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "350",
+      "code": "M3081E",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "349",
+      "code": "JIU4WZ",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "348",
+      "code": "US09L1",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "347",
+      "code": "HBVH9Z",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "346",
+      "code": "RJUOY6",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "345",
+      "code": "S88T62",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "344",
+      "code": "EQ0HYR",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "342",
+      "code": "P2RJDQ",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "11975",
+      "code": "6NHX3P",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "331",
+      "code": "ZGTGY0",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "330",
+      "code": "BM95K0",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "329",
+      "code": "4CZ7KN",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "328",
+      "code": "GKIH7H",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "327",
+      "code": "MMUDI2",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "326",
+      "code": "G7Y49M",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "325",
+      "code": "W27H90",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "323",
+      "code": "UBL4V6",
+      "discount_type": "percent",
+      "amount": 11,
+      "expiry_date": "",
+      "usage_limit": 1,
+      "usage_count": 0,
+      "min_amount": 0,
+      "user_specific": [
+        "admin@gmail.com"
+      ],
+      "status": "active"
+    }
+  ],
+  "orders": [
+    {
+      "id": "23541",
+      "order_number": "23541",
+      "customer_name": "Rahul LIMITED",
+      "customer_email": "aspriyafashion@gmail.com",
+      "date_created": "2026-03-31T14:51:07",
+      "status": "processing",
+      "total": 36030,
+      "items": [
+        {
+          "id": "18",
+          "name": "Elegant Chanderi Embroidered Ensemble",
+          "quantity": 10,
+          "price": 3599
+        }
+      ],
+      "billing": {
+        "first_name": "Rahul",
+        "last_name": "LIMITED",
+        "company": "",
+        "address_1": "jauipur",
+        "address_2": "",
+        "city": "JAIPUR",
+        "state": "RJ",
+        "postcode": "302015",
+        "country": "IN",
+        "email": "aspriyafashion@gmail.com",
+        "phone": "9828019228"
+      },
+      "shipping": {
+        "first_name": "Rahul",
+        "last_name": "LIMITED",
+        "company": "",
+        "address_1": "jauipur",
+        "address_2": "",
+        "city": "JAIPUR",
+        "state": "RJ",
+        "postcode": "302015",
+        "country": "IN"
+      },
+      "payment_method_title": "Cash on delivery"
+    },
+    {
+      "id": "23539",
+      "order_number": "23539",
+      "customer_name": "Rahul LIMITED",
+      "customer_email": "aspriyafashion@gmail.com",
+      "date_created": "2026-03-31T14:48:11",
+      "status": "processing",
+      "total": 111609,
+      "items": [
+        {
+          "id": "14",
+          "name": "Elegant Chanderi Embroidered Ensemble",
+          "quantity": 31,
+          "price": 3599
+        }
+      ],
+      "billing": {
+        "first_name": "Rahul",
+        "last_name": "LIMITED",
+        "company": "",
+        "address_1": "jauipur",
+        "address_2": "",
+        "city": "JAIPUR",
+        "state": "RJ",
+        "postcode": "302015",
+        "country": "IN",
+        "email": "aspriyafashion@gmail.com",
+        "phone": "9828019228"
+      },
+      "shipping": {
+        "first_name": "Rahul",
+        "last_name": "LIMITED",
+        "company": "",
+        "address_1": "jauipur",
+        "address_2": "",
+        "city": "JAIPUR",
+        "state": "RJ",
+        "postcode": "302015",
+        "country": "IN"
+      },
+      "payment_method_title": "Cash on delivery"
+    },
+    {
+      "id": "23538",
+      "order_number": "23538",
+      "customer_name": "Rohit Jangid",
+      "customer_email": "contact@kalavogue.com",
+      "date_created": "2026-03-31T14:47:45",
+      "status": "processing",
+      "total": 15677.25,
+      "items": [
+        {
+          "id": "12",
+          "name": "Elegant Chanderi Embroidered Ensemble",
+          "quantity": 1,
+          "price": 3599
+        }
+      ],
+      "billing": {
+        "first_name": "Rohit",
+        "last_name": "Jangid",
+        "company": "",
+        "address_1": "shiv colony, mundiyaramsar",
+        "address_2": "",
+        "city": "jaipur",
+        "state": "RJ",
+        "postcode": "302012",
+        "country": "IN",
+        "email": "contact@kalavogue.com",
+        "phone": "+918955801175"
+      },
+      "shipping": {
+        "first_name": "Rohit",
+        "last_name": "Jangid",
+        "company": "",
+        "address_1": "shiv colony, mundiyaramsar",
+        "address_2": "",
+        "city": "jaipur",
+        "state": "RJ",
+        "postcode": "302012",
+        "country": "IN"
+      },
+      "payment_method_title": "Cash on delivery"
+    },
+    {
+      "id": "23537",
+      "order_number": "23537",
+      "customer_name": "Rohit Jangid",
+      "customer_email": "contact@kalavogue.com",
+      "date_created": "2026-03-31T14:45:15",
+      "status": "pending",
+      "total": 500,
+      "items": [
+        {
+          "id": "11",
+          "name": "Wallet Topup",
+          "quantity": 1,
+          "price": 500
+        }
+      ],
+      "billing": {
+        "first_name": "Rohit",
+        "last_name": "Jangid",
+        "company": "",
+        "address_1": "shiv colony, mundiyaramsar",
+        "address_2": "",
+        "city": "jaipur",
+        "state": "RJ",
+        "postcode": "302012",
+        "country": "IN",
+        "email": "contact@kalavogue.com",
+        "phone": "+918955801175"
+      },
+      "shipping": {
+        "first_name": "",
+        "last_name": "",
+        "company": "",
+        "address_1": "",
+        "address_2": "",
+        "city": "",
+        "state": "",
+        "postcode": "",
+        "country": ""
+      },
+      "payment_method_title": "Credit Card/Debit Card/NetBanking"
+    },
+    {
+      "id": "23514",
+      "order_number": "23514",
+      "customer_name": "Varsha singh",
+      "customer_email": "aspriyafashion@gmail.com",
+      "date_created": "2026-02-10T17:37:24",
+      "status": "processing",
+      "total": 15677.25,
+      "items": [
+        {
+          "id": "9",
+          "name": "Elegant Chanderi Embroidered Ensemble",
+          "quantity": 1,
+          "price": 3599
+        }
+      ],
+      "billing": {
+        "first_name": "Varsha",
+        "last_name": "singh",
+        "company": "Aspriya",
+        "address_1": "G1-31 APPAREL PARK",
+        "address_2": "MAHAL ROAD,JAGATPURA,302025",
+        "city": "Jaipur",
+        "state": "RJ",
+        "postcode": "302025",
+        "country": "IN",
+        "email": "aspriyafashion@gmail.com",
+        "phone": "+91917014571545"
+      },
+      "shipping": {
+        "first_name": "Varsha",
+        "last_name": "singh",
+        "company": "Aspriya",
+        "address_1": "G1-31 APPAREL PARK",
+        "address_2": "MAHAL ROAD,JAGATPURA,302025",
+        "city": "Jaipur",
+        "state": "RJ",
+        "postcode": "302025",
+        "country": "IN"
+      },
+      "payment_method_title": "Cash on delivery"
+    }
+  ],
+  "settings": {
+    "siteUrl": "https://kalavogue.com/",
+    "consumerKey": "ck_a79c24929c6ea85815f8042131fa6ff9d944bbd2",
+    "consumerSecret": "cs_fd8323c761722696e55b84eff0adea518e36074e",
+    "apiEndpoint": "/wp-json/wc/v3",
+    "jwtSecret": "woo-admin-jwt-top-secret-key-123456789-abcde",
+    "apiTimeout": 5000,
+    "apiHeaders": "Content-Type: application/json",
+    "logo": "✨ Kalavogue Portal",
+    "theme": "light",
+    "sidebarCollapsed": false,
+    "notificationsEnabled": true,
+    "emailNotifications": true,
+    "sessionTimeout": 60,
+    "language": "English",
+    "ipWhitelist": "127.0.0.1, 192.168.1.100",
+    "rateLimiting": true,
+    "loginAttemptsLimit": 5,
+    "twoFactorEnabled": false,
+    "currency": "INR"
+  },
+  "logs": [
+    {
+      "id": "log-hr43qfjoc",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T16:14:19.380Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-i429esdza",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T16:08:55.361Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-hs8iqrq41",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T16:08:52.994Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-ijinkg3x3",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T15:42:16.259Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-mmz8f2s7p",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T15:42:10.037Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-wgrxrhs3w",
+      "type": "settings",
+      "severity": "info",
+      "message": "Updated system settings properties / custom variables",
+      "timestamp": "2026-05-24T15:41:47.821Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-o78uxu7m8",
+      "type": "auth",
+      "severity": "info",
+      "message": "Successful login for admin (Super Admin)",
+      "timestamp": "2026-05-24T15:35:17.472Z",
+      "admin": "admin"
+    },
+    {
+      "id": "log-1",
+      "type": "auth",
+      "severity": "info",
+      "message": "Initial workspace user database seeded successfully",
+      "timestamp": "2026-05-23T09:00:00Z",
+      "admin": "System"
+    },
+    {
+      "id": "log-2",
+      "type": "auth",
+      "severity": "info",
+      "message": "Admin account logged in from IP 192.168.1.100",
+      "timestamp": "2026-05-23T09:10:00Z",
+      "admin": "admin",
+      "ip": "192.168.1.100"
+    },
+    {
+      "id": "log-3",
+      "type": "product",
+      "severity": "info",
+      "message": "Product \"Wireless Noise-Canceling Headphones Professional\" synchronized",
+      "timestamp": "2026-05-23T09:20:00Z",
+      "admin": "admin"
+    }
+  ],
+  "adminNotes": [
+    {
+      "id": "note-1",
+      "content": "⚡ Remember to review inventory for \"Vapor-Infused Walnut Wood Desk Organizer Studio\" as stock is critical (only 3 remaining). Request stock re-evaluation from vendor.\n\n📢 Product variations updated for upcoming Summer Sale coupon WELCOME20 clearance push.",
+      "updatedAt": "2026-05-23T09:44:00Z",
+      "author": "admin"
+    }
+  ]
+}

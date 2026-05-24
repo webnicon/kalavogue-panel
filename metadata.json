@@ -1,0 +1,6 @@
+{
+  "name": "WooCommerce Admin Panel",
+  "description": "A modern, standalone full-stack admin dashboard for managing WordPress + WooCommerce products, users, coupons, and stats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
