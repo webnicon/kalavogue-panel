@@ -9,7 +9,7 @@ async function startServer() {
   LocalDB.initialize();
 
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   // Middleware for body parsing
   app.use(express.json());
