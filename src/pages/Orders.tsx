@@ -191,7 +191,7 @@ export const Orders: React.FC = () => {
     }
   };
 
-  // ADVANCED PROFESSIONAL CLIENT-SIDE PDF INVOICE GENERATOR
+  // ADVANCED LUXURY CLOTHING BRAND CLIENT-SIDE PDF INVOICE GENERATOR (KALAVOGUE EXCLUSIVE)
   const downloadInvoicePDF = (order: WooCommerceOrder) => {
     try {
       const curSymbol = settings?.currency === 'INR' ? 'Rs ' : (settings?.currency === 'EUR' ? 'EUR ' : (settings?.currency === 'GBP' ? 'GBP ' : '$'));
@@ -201,70 +201,93 @@ export const Orders: React.FC = () => {
         format: 'a4'
       });
 
-      // Colors defined as pure RGB integers
-      const primaryColor = [15, 23, 42];  // Slate 900
-      const accentColor = [14, 165, 233]; // Sky 500
-      const textColor = [51, 65, 85];    // Slate 700
-      const subtleColor = [100, 116, 139]; // Slate 500
-      const rowBgColor = [248, 250, 252];  // Alternating zebra
-      const borderLineColor = [241, 245, 249]; // Border gray
+      // Luxurious color palette definitions
+      const colorCharcoal = [26, 26, 26];       // Rich Pitch Black for major headings
+      const colorAntiqueGold = [180, 142, 60];   // Luxury Antique Gold for accents
+      const colorBodyText = [60, 60, 60];        // Elegant soft dark gray for readability
+      const colorSecondary = [115, 115, 115];    // Refined slate gray for secondary metadata
+      const colorIvoryZebra = [253, 252, 250];   // Warm ivory for alternating rows
+      const colorLightDivider = [234, 231, 224]; // High-end warm-gray thin divider line
 
-      // 1. PAGE UPPER HEADER BAND (Brand Identity)
-      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-      doc.rect(0, 0, 210, 42, 'F'); // Dark brand banner
-
-      // Top Header text
+      // 1. HEADER SECTION (Minimalist Luxury Aesthetic)
+      // High-end fashion houses do not use heavy, bright blue top banners. They use clean negative space with striking text and microline dividers.
+      
+      // Brand Title spaced for prestige representation
       doc.setFont('Helvetica', 'bold');
-      doc.setFontSize(22);
-      doc.setTextColor(255, 255, 255);
-      doc.text('KALAVOGUE SYSTEMS', 15, 18);
+      doc.setFontSize(26);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text('K A L A V O G U E', 105, 22, { align: 'center' });
+
+      // Fine taglines
+      doc.setFont('Helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(colorAntiqueGold[0], colorAntiqueGold[1], colorAntiqueGold[2]);
+      doc.text('HAUTE COUTURE & READY-TO-WEAR', 105, 28, { align: 'center' });
 
       doc.setFont('Helvetica', 'normal');
-      doc.setFontSize(8.5);
-      doc.setTextColor(186, 230, 253);
-      doc.text('KALAVOGUE WORDPRESS & WOOCOMMERCE NODE INTEGRATOR', 15, 24);
-      doc.text('Client Portal: kalavogue.admin.sandbox', 15, 29);
-      doc.text('Support: office@kalavogue.com', 15, 34);
+      doc.setFontSize(7.5);
+      doc.setTextColor(colorSecondary[0], colorSecondary[1], colorSecondary[2]);
+      doc.text('PARIS  ·  NEW YORK  ·  LONDON  ·  MILAN', 105, 33, { align: 'center' });
+      doc.text('Client Concierge: concierge@kalavogue.com  |  www.kalavogue.com', 105, 37, { align: 'center' });
 
-      // Invoice metadata on the top-right
+      // Elegant Gold-Bronze divider line
+      doc.setDrawColor(colorAntiqueGold[0], colorAntiqueGold[1], colorAntiqueGold[2]);
+      doc.setLineWidth(0.35);
+      doc.line(15, 43, 195, 43);
+
+      // 2. INVOICE OVERVIEW METADATA (Left / Right split)
+      let currentY = 53;
       doc.setFont('Helvetica', 'bold');
-      doc.setFontSize(24);
-      doc.setTextColor(255, 255, 255);
-      doc.text('INVOICE / RECEIPT', 195, 19, { align: 'right' });
+      doc.setFontSize(12);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text('STATEMENT OF ACQUISITION', 15, currentY);
 
+      // Invoice metadata on the top-right formatted elegantly
       doc.setFont('Helvetica', 'normal');
-      doc.setFontSize(9.5);
-      doc.setTextColor(186, 230, 253);
-      doc.text(`Doc Ref: WCO-${order.order_number}`, 195, 27, { align: 'right' });
-      doc.text(`Dated: ${new Date(order.date_created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}`, 195, 32, { align: 'right' });
-      doc.text(`Status: ${order.status.toUpperCase()}`, 195, 37, { align: 'right' });
+      doc.setFontSize(9);
+      doc.setTextColor(colorBodyText[0], colorBodyText[1], colorBodyText[2]);
+      
+      const formattedDate = new Date(order.date_created).toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
 
-      // 2. BILLING & SHIPPING ADJACENT BLOCKS (2-Column Grid)
-      let currentY = 56;
+      doc.text(`Invoice Ref: KLV-${order.order_number}`, 195, currentY, { align: 'right' });
+      doc.text(`Issue Date: ${formattedDate}`, 195, currentY + 5, { align: 'right' });
+      doc.text(`Payment: ${order.payment_method_title || 'Secure Payment Link'}`, 195, currentY + 10, { align: 'right' });
+      
       doc.setFont('Helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-      doc.text('BILL TO (CUSTOMER):', 15, currentY);
-      doc.text('SHIPPED TO:', 110, currentY);
+      doc.setTextColor(colorAntiqueGold[0], colorAntiqueGold[1], colorAntiqueGold[2]);
+      doc.text(`Status: ${order.status.toUpperCase()}`, 195, currentY + 15, { align: 'right' });
 
-      // Section Dividers
-      doc.setDrawColor(226, 232, 240);
-      doc.setLineWidth(0.4);
+      // 3. BILLING & SHIPPING SPECIFICS (Two Elegant Parallel Columns)
+      currentY = 78;
+      doc.setFont('Helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text('BILLING ADDRESS', 15, currentY);
+      doc.text('SHIPPING ADDRESS', 110, currentY);
+
+      // Section subtle horizontal rule lines
+      doc.setDrawColor(colorLightDivider[0], colorLightDivider[1], colorLightDivider[2]);
+      doc.setLineWidth(0.3);
       doc.line(15, currentY + 2.5, 95, currentY + 2.5);
       doc.line(110, currentY + 2.5, 195, currentY + 2.5);
 
       currentY += 8;
-      // Resolve optional nested address states
+      
+      // Setup dynamic addresses
       const bObj = order.billing || {
         first_name: order.customer_name.split(' ')[0] || 'Store',
         last_name: order.customer_name.split(' ').slice(1).join(' ') || 'Customer',
-        address_1: 'Walk-In Storefront Counter',
+        address_1: 'Walk-In Storefront Boutique',
         city: 'Local',
         state: 'Express',
         postcode: '00000',
         country: 'US',
         phone: 'N/A',
-        email: order.customer_email || 'walkin@example.com'
+        email: order.customer_email || 'concierge@kalavogue.com'
       };
 
       const sObj = order.shipping || {
@@ -277,160 +300,208 @@ export const Orders: React.FC = () => {
         country: bObj.country
       };
 
+      // Print left column (Billing info)
       doc.setFont('Helvetica', 'bold');
       doc.setFontSize(9.5);
-      doc.setTextColor(51, 65, 85);
-      
-      // Print Bill-To
-      doc.text(`${bObj.first_name} ${bObj.last_name}`.trim(), 15, currentY);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text(`${bObj.first_name} ${bObj.last_name}`.trim().toUpperCase(), 15, currentY);
+
       doc.setFont('Helvetica', 'normal');
-      doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-      doc.text(bObj.address_1 || 'No billing address provided.', 15, currentY + 5);
-      let billExtraHeight = 0;
+      doc.setFontSize(8.5);
+      doc.setTextColor(colorBodyText[0], colorBodyText[1], colorBodyText[2]);
+      
+      let billTextY = currentY + 4.5;
+      doc.text(bObj.address_1 || 'No billing address specified.', 15, billTextY);
       if (bObj.address_2) {
-        doc.text(bObj.address_2, 15, currentY + 10);
-        billExtraHeight = 5;
+        billTextY += 4.5;
+        doc.text(bObj.address_2, 15, billTextY);
       }
-      doc.text(`${bObj.city || ''}, ${bObj.state || ''} ${bObj.postcode || ''}`, 15, currentY + 10 + billExtraHeight);
-      doc.text(bObj.country || '', 15, currentY + 15 + billExtraHeight);
-      doc.setFont('Helvetica', 'bold');
-      doc.text(`Email:`, 15, currentY + 21 + billExtraHeight);
-      doc.setFont('Helvetica', 'normal');
-      doc.text(bObj.email || order.customer_email || 'N/A', 27, currentY + 21 + billExtraHeight);
-      doc.setFont('Helvetica', 'bold');
-      doc.text(`Phone:`, 15, currentY + 26 + billExtraHeight);
-      doc.setFont('Helvetica', 'normal');
-      doc.text(bObj.phone || 'N/A', 28, currentY + 26 + billExtraHeight);
-
-      // Print Ship-To
-      let shipY = 56 + 8;
-      doc.setFont('Helvetica', 'bold');
-      doc.setTextColor(51, 65, 85);
-      doc.text(`${sObj.first_name} ${sObj.last_name}`.trim(), 110, shipY);
-      doc.setFont('Helvetica', 'normal');
-      doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-      doc.text(sObj.address_1 || bObj.address_1 || 'Standard digital delivery.', 110, shipY + 5);
-      let shipExtraHeight = 0;
-      if (sObj.address_2) {
-        doc.text(sObj.address_2, 110, shipY + 10);
-        shipExtraHeight = 5;
-      }
-      doc.text(`${sObj.city || bObj.city || ''}, ${sObj.state || bObj.state || ''} ${sObj.postcode || bObj.postcode || ''}`, 110, shipY + 10 + shipExtraHeight);
-      doc.text(sObj.country || bObj.country || '', 110, shipY + 15 + shipExtraHeight);
+      billTextY += 4.5;
+      doc.text(`${bObj.city || ''}, ${bObj.state || ''} ${bObj.postcode || ''}`, 15, billTextY);
+      billTextY += 4.5;
+      doc.text(bObj.country || '', 15, billTextY);
       
+      billTextY += 5.5;
       doc.setFont('Helvetica', 'bold');
-      doc.text(`Payment:`, 110, shipY + 21 + shipExtraHeight);
+      doc.text('Email:', 15, billTextY);
       doc.setFont('Helvetica', 'normal');
-      doc.text(order.payment_method_title || 'Credit Card / Online', 128, shipY + 21 + shipExtraHeight);
-
+      doc.text(bObj.email || order.customer_email || 'N/A', 26, billTextY);
+      
+      billTextY += 4.5;
       doc.setFont('Helvetica', 'bold');
-      doc.text(`ID Reference:`, 110, shipY + 26 + shipExtraHeight);
+      doc.text('Phone:', 15, billTextY);
       doc.setFont('Helvetica', 'normal');
-      doc.text(order.id, 134, shipY + 26 + shipExtraHeight);
+      doc.text(bObj.phone || 'N/A', 27, billTextY);
 
-      currentY = Math.max(currentY + 28 + billExtraHeight, shipY + 28 + shipExtraHeight) + 12;
+      // Print right column (Shipping info)
+      let shipTextY = currentY;
+      doc.setFont('Helvetica', 'bold');
+      doc.setFontSize(9.5);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text(`${sObj.first_name} ${sObj.last_name}`.trim().toUpperCase(), 110, shipTextY);
 
-      // 3. PRODUCTS LINE ITEMS TABLE
-      doc.setFillColor(241, 245, 249); // Table Header light grey background
+      doc.setFont('Helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(colorBodyText[0], colorBodyText[1], colorBodyText[2]);
+      
+      shipTextY += 4.5;
+      doc.text(sObj.address_1 || bObj.address_1 || 'Standard complimentary boutique delivery.', 110, shipTextY);
+      if (sObj.address_2) {
+        shipTextY += 4.5;
+        doc.text(sObj.address_2, 110, shipTextY);
+      }
+      shipTextY += 4.5;
+      doc.text(`${sObj.city || bObj.city || ''}, ${sObj.state || bObj.state || ''} ${sObj.postcode || bObj.postcode || ''}`, 110, shipTextY);
+      shipTextY += 4.5;
+      doc.text(sObj.country || bObj.country || '', 110, shipTextY);
+
+      shipTextY += 5.5;
+      doc.setFont('Helvetica', 'bold');
+      doc.text('Delivery Method:', 110, shipTextY);
+      doc.setFont('Helvetica', 'normal');
+      doc.text('Complimentary Premium Courier', 137, shipTextY);
+
+      shipTextY += 4.5;
+      doc.setFont('Helvetica', 'bold');
+      doc.text('Signature Verification:', 110, shipTextY);
+      doc.setFont('Helvetica', 'normal');
+      doc.text('Required Upon Delivery', 145, shipTextY);
+
+      currentY = Math.max(billTextY, shipTextY) + 12;
+
+      // 4. TRANSACTION LINE ITEMS TABLE
+      // Premium warm ivory header bar
+      doc.setFillColor(colorIvoryZebra[0], colorIvoryZebra[1], colorIvoryZebra[2]);
       doc.rect(15, currentY, 180, 8.5, 'F');
 
+      // Thin outline for table header
+      doc.setDrawColor(colorLightDivider[0], colorLightDivider[1], colorLightDivider[2]);
+      doc.setLineWidth(0.3);
+      doc.line(15, currentY, 195, currentY);
+      doc.line(15, currentY + 8.5, 195, currentY + 8.5);
+
       doc.setFont('Helvetica', 'bold');
-      doc.setFontSize(8.5);
-      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.setFontSize(8);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
       
-      doc.text('No.', 18, currentY + 5.5);
-      doc.text('Product Name / Description', 30, currentY + 5.5);
-      doc.text('Qty', 130, currentY + 5.5, { align: 'center' });
-      doc.text('Unit Price', 156, currentY + 5.5, { align: 'right' });
-      doc.text('Amount Total', 190, currentY + 5.5, { align: 'right' });
+      doc.text('REF', 18, currentY + 5.5);
+      doc.text('EXCLUSIVE MERCHANDISE SELECTION', 30, currentY + 5.5);
+      doc.text('QTY', 130, currentY + 5.5, { align: 'center' });
+      doc.text('UNIT VAL', 158, currentY + 5.5, { align: 'right' });
+      doc.text('ACQUISITION NET', 190, currentY + 5.5, { align: 'right' });
 
       doc.setFont('Helvetica', 'normal');
-      doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+      doc.setTextColor(colorBodyText[0], colorBodyText[1], colorBodyText[2]);
 
       currentY += 8.5;
       
       order.items.forEach((item, index) => {
-        // Line zebra stripes
+        // Subtle row backgrounds
         if (index % 2 === 1) {
-          doc.setFillColor(rowBgColor[0], rowBgColor[1], rowBgColor[2]);
-          doc.rect(15, currentY, 180, 8, 'F');
+          doc.setFillColor(colorIvoryZebra[0], colorIvoryZebra[1], colorIvoryZebra[2]);
+          doc.rect(15, currentY, 180, 8.5, 'F');
         }
 
         const subtotal = item.quantity * item.price;
         
-        doc.text(String(index + 1), 18, currentY + 5.5);
+        doc.setFont('Helvetica', 'normal');
+        doc.setFontSize(8.25);
+        doc.text(String(index + 1).padStart(2, '0'), 18, currentY + 5.5);
         
-        // Trim length if description stretches past margins
-        const maxChar = 52;
-        const mappedName = item.name.length > maxChar ? item.name.substring(0, maxChar - 3) + '...' : item.name;
+        // Clean high-end product naming representation
+        const maxChar = 54;
+        const mappedName = item.name.length > maxChar ? item.name.substring(0, maxChar - 3).toUpperCase() + '...' : item.name.toUpperCase();
+        
+        doc.setFont('Helvetica', 'bold');
+        doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
         doc.text(mappedName, 30, currentY + 5.5);
 
+        doc.setFont('Helvetica', 'normal');
+        doc.setTextColor(colorBodyText[0], colorBodyText[1], colorBodyText[2]);
         doc.text(String(item.quantity), 130, currentY + 5.5, { align: 'center' });
-        doc.text(`${curSymbol}${item.price.toFixed(2)}`, 156, currentY + 5.5, { align: 'right' });
+        doc.text(`${curSymbol}${item.price.toFixed(2)}`, 158, currentY + 5.5, { align: 'right' });
         doc.text(`${curSymbol}${subtotal.toFixed(2)}`, 190, currentY + 5.5, { align: 'right' });
 
-        // Bottom border line for each physical row
-        doc.setDrawColor(borderLineColor[0], borderLineColor[1], borderLineColor[2]);
-        doc.setLineWidth(0.3);
-        doc.line(15, currentY + 8, 195, currentY + 8);
+        // Fine elegant rule divider line under row
+        doc.setDrawColor(colorLightDivider[0], colorLightDivider[1], colorLightDivider[2]);
+        doc.setLineWidth(0.25);
+        doc.line(15, currentY + 8.5, 195, currentY + 8.5);
 
-        currentY += 8;
+        currentY += 8.5;
       });
 
-      // 4. PRICING SUMMARY SLIDER
-      currentY += 6;
-      doc.setDrawColor(15, 23, 42);
-      doc.setLineWidth(0.7);
-      doc.line(125, currentY, 195, currentY); // Segment header anchor line
+      // 5. PRICING RATIO & CONVERTED TOTALS
+      currentY += 5;
+      doc.setDrawColor(colorAntiqueGold[0], colorAntiqueGold[1], colorAntiqueGold[2]);
+      doc.setLineWidth(0.4);
+      doc.line(125, currentY, 195, currentY); // Premium brand golden line anchor
 
       currentY += 6;
       doc.setFont('Helvetica', 'normal');
-      doc.setFontSize(9.5);
-      doc.setTextColor(subtleColor[0], subtleColor[1], subtleColor[2]);
+      doc.setFontSize(9);
+      doc.setTextColor(colorSecondary[0], colorSecondary[1], colorSecondary[2]);
       
-      doc.text('Subtotal:', 155, currentY, { align: 'right' });
-      doc.setTextColor(51, 65, 85);
+      doc.text('Subtotal:', 152, currentY, { align: 'right' });
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
       doc.text(`${curSymbol}${order.total.toFixed(2)}`, 190, currentY, { align: 'right' });
 
       currentY += 5;
-      doc.setTextColor(subtleColor[0], subtleColor[1], subtleColor[2]);
-      doc.text('Calculated Tax / VAT (0%):', 155, currentY, { align: 'right' });
-      doc.setTextColor(51, 65, 85);
+      doc.setTextColor(colorSecondary[0], colorSecondary[1], colorSecondary[2]);
+      doc.text('Value Added Tax (Complimentary):', 152, currentY, { align: 'right' });
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
       doc.text(`${curSymbol}0.00`, 190, currentY, { align: 'right' });
 
-      // Master Total Ribbon
-      currentY += 6;
-      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-      doc.rect(125, currentY, 70, 9, 'F');
+      currentY += 5;
+      doc.setTextColor(colorSecondary[0], colorSecondary[1], colorSecondary[2]);
+      doc.text('Boutique Shipping (Complimentary):', 152, currentY, { align: 'right' });
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text(`${curSymbol}0.00`, 190, currentY, { align: 'right' });
 
+      // Premium Grand Total border and ribbon style (Luxury White Grid block with Gold text highlights)
+      currentY += 5;
+      doc.setDrawColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.setLineWidth(0.5);
+      doc.line(125, currentY, 195, currentY);
+
+      currentY += 6;
       doc.setFont('Helvetica', 'bold');
       doc.setFontSize(10.5);
-      doc.setTextColor(255, 255, 255);
-      doc.text('Grand Total Paid:', 152, currentY + 6, { align: 'right' });
-      doc.setFontSize(11);
-      doc.text(`${curSymbol}${order.total.toFixed(2)}`, 190, currentY + 6, { align: 'right' });
-
-      // 5. REGULATORY LEGAL STAMP & FOOTER
-      doc.setFont('Helvetica', 'normal');
-      doc.setTextColor(subtleColor[0], subtleColor[1], subtleColor[2]);
-      doc.setFontSize(8);
-      doc.text('Notice: This purchase order matches direct records within your live server container nodes.', 15, 268);
-      doc.text('All digital deliverables are authorized, dispatched, and finalized automatically on database clearance.', 15, 272);
+      doc.setTextColor(colorAntiqueGold[0], colorAntiqueGold[1], colorAntiqueGold[2]);
+      doc.text('GRAND TOTAL NET:', 152, currentY, { align: 'right' });
       
-      doc.setDrawColor(226, 232, 240);
-      doc.setLineWidth(0.4);
-      doc.line(15, 275, 195, 275);
+      doc.setFontSize(11);
+      doc.setTextColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.text(`${curSymbol}${order.total.toFixed(2)}`, 190, currentY, { align: 'right' });
 
-      const generatedOn = new Date().toLocaleString();
-      doc.text(`PDF System Timestamp: ${generatedOn} | Secure Live API Transaction Token Block`, 15, 281);
-      doc.text('Page 1 of 1', 195, 281, { align: 'right' });
+      // Double-line brand stamp under final total
+      currentY += 2;
+      doc.setDrawColor(colorCharcoal[0], colorCharcoal[1], colorCharcoal[2]);
+      doc.setLineWidth(0.2);
+      doc.line(125, currentY, 195, currentY);
+      doc.line(125, currentY + 0.6, 195, currentY + 0.6);
+
+      // 6. HEARTFELT EXCLUSIVE BRAND GREETING & REGULATORY POLISHED METADATA
+      doc.setFont('Helvetica', 'normal');
+      doc.setTextColor(colorSecondary[0], colorSecondary[1], colorSecondary[2]);
+      doc.setFontSize(8);
+      doc.text('Thank you for choosing Kalavogue. Your selection represents the pinnacle of premium design and craftsmanship.', 15, 266);
+      doc.text('Boutique Exchange: Complimentary returns and sizing exchanges are accommodated via our concierge platform inside 14 days.', 15, 270.5);
+      
+      // Fine bottom line
+      doc.setDrawColor(colorLightDivider[0], colorLightDivider[1], colorLightDivider[2]);
+      doc.setLineWidth(0.3);
+      doc.line(15, 274.5, 195, 274.5);
+
+      const generatedOn = new Date().toLocaleString('en-US', { hour12: true });
+      doc.text(`Kalavogue Authorized Original  ·  Generated: ${generatedOn}  ·  Verification Code: KLV-OK-SEC`, 15, 280);
+      doc.text('Page 1 of 1', 195, 280, { align: 'right' });
 
       // Save as automated file
-      doc.save(`Invoice_WooCore_${order.order_number}.pdf`);
-      addNotification(`Invoice PDF order #${order.order_number} exported.`, 'success');
+      doc.save(`Kalavogue_Invoice_${order.order_number}.pdf`);
+      addNotification(`Boutique Invoice for order #${order.order_number} exported.`, 'success');
     } catch (e: any) {
       console.error(e);
-      addNotification('Could not resolve PDF layout matrices. Check dependencies.', 'error');
+      addNotification('Failed to generate high fashion invoice PDF. Contact tech group.', 'error');
     }
   };
 
@@ -468,21 +539,21 @@ export const Orders: React.FC = () => {
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-            <Receipt className="h-6 w-6 text-sky-400" />
-            WooCommerce Purchase Orders
+            <Receipt className="h-6 w-6 text-amber-500" />
+            Kalavogue Couture Archives
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
-            Browse transaction records from WordPress live site with real-time editing, manual offline override registers, and standard high fidelity invoice rendering.
+          <p className="text-xs text-slate-550 mt-1">
+            Secure luxury receipt archives, private order intake interfaces, and gold-level boutique invoice presentation for Kalavogue.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={() => setIsFormOpen(true)}
-            className="flex items-center justify-center gap-1.5 rounded-lg bg-sky-500 hover:bg-sky-600 px-4 py-2.5 text-xs font-extrabold text-slate-950 transition-colors shadow-sm cursor-pointer"
+            className="flex items-center justify-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 px-4 py-2.5 text-xs font-extrabold text-slate-950 transition-colors shadow-sm cursor-pointer"
           >
             <Plus className="h-4 w-4" />
-            Register Manual Guest Order
+            Initiate Private Sale Intake
           </button>
 
           <button
@@ -659,15 +730,15 @@ export const Orders: React.FC = () => {
             <div className="flex items-start justify-between border-b border-slate-800 pb-4 mb-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-bold tracking-wider text-sky-450 uppercase">Purchases Ledger Unit</span>
+                  <span className="text-xs font-mono font-bold tracking-wider text-amber-500 uppercase">Kalavogue Private Order Archive</span>
                   <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[8px] font-black uppercase tracking-widest ${getStatusBadgeStyles(selectedOrder.status)}`}>
                     {selectedOrder.status}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold font-mono tracking-tight text-white mt-1">
-                  Order Details: #{selectedOrder.order_number}
+                  Sales Receipt: #{selectedOrder.order_number}
                 </h3>
-                <p className="text-[10px] text-slate-500 font-mono mt-0.5">Global Unique UUID: {selectedOrder.id}</p>
+                <p className="text-[10px] text-amber-500/80 font-mono mt-0.5">Boutique Clearance Token: {selectedOrder.id}</p>
               </div>
               <button
                 onClick={() => setSelectedOrder(null)}
@@ -684,8 +755,8 @@ export const Orders: React.FC = () => {
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800/80 space-y-3">
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-1.5">
-                    <User className="h-3.5 w-3.5 text-sky-400" />
-                    Customer Identity Profile
+                    <User className="h-3.5 w-3.5 text-amber-500" />
+                    Client Luxury Profile
                   </h4>
                   <div className="text-xs space-y-1">
                     <div className="flex justify-between">
@@ -694,27 +765,27 @@ export const Orders: React.FC = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Contact Email</span>
-                      <span className="font-semibold text-sky-450">{selectedOrder.customer_email || 'No email given'}</span>
+                      <span className="font-semibold text-sky-405 text-slate-305">{selectedOrder.customer_email || 'No email given'}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Phone Reference</span>
                       <span className="font-semibold text-slate-200">{selectedOrder.billing?.phone || 'No phone verified'}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-500">Payment Channel</span>
-                      <span className="font-mono text-[10px] text-amber-400 font-bold">{selectedOrder.payment_method_title || 'Direct Checkout'}</span>
+                      <span className="text-slate-500">Preferred Payment Mode</span>
+                      <span className="font-mono text-[10px] text-amber-500 font-bold">{selectedOrder.payment_method_title || 'Direct Checkout'}</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800/80 space-y-3.5">
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-1.5">
-                    🗺️ Client Addresses Ledger
+                    🗺️ Boutique Delivery Specs
                   </h4>
                   <div className="grid grid-cols-2 gap-4 text-[11px] text-slate-350">
                     <div>
-                      <span className="block text-[9px] uppercase tracking-wider font-bold text-slate-500 mb-1">Billing Location</span>
-                      <p className="font-medium text-slate-350 leading-relaxed">
+                      <span className="block text-[9px] uppercase tracking-wider font-bold text-amber-500/80 mb-1">Billing Target</span>
+                      <p className="font-medium text-slate-355 leading-relaxed">
                         {selectedOrder.billing?.first_name ? (
                           <>
                             {selectedOrder.billing.address_1}<br />
@@ -723,13 +794,13 @@ export const Orders: React.FC = () => {
                             {selectedOrder.billing.country}
                           </>
                         ) : (
-                          'Storefront / Walk-In Local Area Address'
+                          'Complimentary In-Store Collection'
                         )}
                       </p>
                     </div>
                     <div>
-                      <span className="block text-[9px] uppercase tracking-wider font-bold text-slate-500 mb-1">Shipping Target</span>
-                      <p className="font-medium text-slate-350 leading-relaxed">
+                      <span className="block text-[9px] uppercase tracking-wider font-bold text-amber-500/80 mb-1">Destination Courier Target</span>
+                      <p className="font-medium text-slate-355 leading-relaxed">
                         {selectedOrder.shipping?.first_name ? (
                           <>
                             {selectedOrder.shipping.address_1}<br />
@@ -738,7 +809,7 @@ export const Orders: React.FC = () => {
                             {selectedOrder.shipping.country}
                           </>
                         ) : (
-                          'Same as Billing parameters / Standard digital distribution.'
+                          'Same as verified checkout billing coordinates.'
                         )}
                       </p>
                     </div>
@@ -750,34 +821,34 @@ export const Orders: React.FC = () => {
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800/80 space-y-3">
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-1.5">
-                    <ShoppingBag className="h-3.5 w-3.5 text-sky-400" />
-                    Transaction Line Items ({selectedOrder.items.length})
+                    <ShoppingBag className="h-3.5 w-3.5 text-amber-500" />
+                    Acquisition Details ({selectedOrder.items.length})
                   </h4>
                   
                   <div className="space-y-2 max-h-52 overflow-y-auto pr-1">
                     {selectedOrder.items.map((item, idx) => (
                       <div key={item.id || idx} className="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800/60 text-xs">
                         <div className="min-w-0 flex-1 pr-2">
-                          <p className="font-extrabold text-slate-200 truncate">{item.name}</p>
-                          <p className="text-[10px] text-slate-500 font-mono mt-0.5">{formatPrice(item.price)} each</p>
+                          <p className="font-extrabold text-slate-200 truncate">{item.name.toUpperCase()}</p>
+                          <p className="text-[10px] text-slate-400 font-mono mt-0.5">{formatPrice(item.price)} each</p>
                         </div>
                         <div className="text-right flex-shrink-0 font-mono">
                           <span className="text-slate-450 mr-2.5 font-bold">Qty {item.quantity}</span>
-                          <span className="font-black text-sky-450">{formatPrice(item.quantity * item.price)}</span>
+                          <span className="font-black text-amber-500">{formatPrice(item.quantity * item.price)}</span>
                         </div>
                       </div>
                     ))}
                   </div>
 
                   <div className="border-t border-slate-800 pt-3 flex justify-between items-center bg-slate-950 p-3 rounded-lg border border-slate-800/40">
-                    <span className="text-xs text-slate-450 font-bold uppercase tracking-wider">Total Ledger Amount:</span>
-                    <span className="text-lg font-black font-mono text-emerald-400">{formatPrice(selectedOrder.total)}</span>
+                    <span className="text-xs text-slate-300 font-bold uppercase tracking-wider">Total Purchase Worth:</span>
+                    <span className="text-lg font-black font-mono text-amber-500">{formatPrice(selectedOrder.total)}</span>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-lg bg-slate-900/70 border border-slate-800/80 space-y-3">
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-1.5">
-                    ⚡ Quick Status Update Controls
+                    🔒 Boutique Status Verification
                   </h4>
                   <div className="grid grid-cols-3 gap-2">
                     <button
@@ -815,22 +886,22 @@ export const Orders: React.FC = () => {
                 className="flex items-center justify-center gap-1.5 rounded-lg bg-rose-950/20 hover:bg-rose-600 hover:text-slate-950 px-4 py-2 border border-rose-900/35 text-rose-450 hover:border-transparent text-xs font-extrabold cursor-pointer transition-all"
               >
                 <Trash2 className="h-4 w-4" />
-                Void Order File
+                Void Reception Record
               </button>
 
               <div className="flex gap-2.5">
                 <button
                   onClick={() => downloadInvoicePDF(selectedOrder)}
-                  className="flex items-center justify-center gap-1.5 rounded-lg bg-sky-500 hover:bg-sky-600 px-5 py-2 text-slate-950 font-black text-xs cursor-pointer shadow-md transition-all"
+                  className="flex items-center justify-center gap-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 px-5 py-2 text-slate-950 font-black text-xs cursor-pointer shadow-md transition-all animate-pulse"
                 >
                   <Download className="h-4 w-4" />
-                  Generate Invoice PDF
+                  Print Luxury Invoice
                 </button>
                 <button
                   onClick={() => setSelectedOrder(null)}
                   className="rounded-lg bg-slate-900 hover:bg-slate-850 px-5 py-2 text-slate-300 font-bold border border-slate-800 text-xs cursor-pointer transition-colors"
                 >
-                  Dismiss Panel
+                  Close Archive
                 </button>
               </div>
             </div>

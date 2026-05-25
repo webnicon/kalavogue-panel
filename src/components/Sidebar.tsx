@@ -75,7 +75,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {/* Branch Title Area */}
         <div className="flex h-16 items-center justify-between px-4 border-b border-slate-800">
           <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 text-slate-950 shadow-md">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-500 text-slate-950 shadow-md">
               <Globe2 className="h-5 w-5 stroke-[2.5]" />
             </div>
             {!sidebarCollapsed && (
@@ -83,8 +83,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <span className="text-sm font-bold tracking-tight text-white uppercase">
                   Kalavogue
                 </span>
-                <span className="text-[10px] font-mono text-slate-500 tracking-wider">
-                  Panel
+                <span className="text-[10px] font-mono text-slate-550 tracking-wider">
+                  Master Panel
                 </span>
               </div>
             )}
@@ -133,14 +133,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => handleNavClick(item.id)}
                 className={`group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150 relative cursor-pointer
                   ${isActive 
-                    ? 'bg-sky-500/10 text-sky-450 border border-sky-500/20 shadow-[0_0_12px_rgba(56,189,248,0.05)]' 
+                    ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20 shadow-[0_0_12px_rgba(245,158,11,0.05)]' 
                     : 'text-slate-400 hover:bg-slate-900/40 hover:text-white transition-colors border border-transparent'
                   }
                 `}
                 title={sidebarCollapsed ? item.label : undefined}
               >
                 <Icon className={`h-4.5 w-4.5 flex-shrink-0 transition-transform group-hover:scale-105 duration-150
-                  ${isActive ? 'text-sky-400' : 'text-slate-500 group-hover:text-slate-300'}
+                  ${isActive ? 'text-amber-500' : 'text-slate-500 group-hover:text-slate-300'}
                 `} />
                 
                 {!sidebarCollapsed && (
@@ -149,7 +149,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                 {/* Left Active highlight border */}
                 {isActive && (
-                  <span className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-sky-500 rounded-r-md" />
+                  <span className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-amber-500 rounded-r-md" />
                 )}
               </button>
             );
@@ -174,7 +174,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <p className="text-xs font-bold text-slate-805 truncate leading-tight">
                   {user?.username}
                 </p>
-                <p className="text-[10px] text-sky-400 font-bold tracking-tight truncate uppercase mt-0.5">
+                <p className="text-[10px] text-amber-500 font-bold tracking-tight truncate uppercase mt-0.5">
                   {user?.role}
                 </p>
               </div>
