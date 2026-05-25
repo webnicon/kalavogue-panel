@@ -1,11 +1,12 @@
 import path from 'path';
 import fs from 'fs';
+import { pathToFileURL } from 'url';
 
-const compiledServerPath = './dist/server.cjs';
+const compiledServerPath = path.join(process.cwd(), 'dist', 'server.cjs');
 
 if (fs.existsSync(compiledServerPath)) {
-  // Dynamically load the fully compiled production server
-  await import(compiledServerPath);
+  // Dynamically load the fully compiled production server using file URL protocol for Node ESM
+  await import(pathToFileURL(compiledServerPath).href);
 } else {
   console.log("--------------------------------------------------");
   console.log("⚠️  Notice: 'dist/server.cjs' was not found yet.");
