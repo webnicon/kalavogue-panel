@@ -63,6 +63,18 @@ export interface WooCommerceUser {
   login_logs: UserLoginLog[];
 }
 
+export interface WalletTransaction {
+  id: string;
+  user_id: string;
+  username: string;
+  email: string;
+  amount: number;
+  type: 'credit' | 'debit';
+  details: string;
+  date: string;
+  admin: string;
+}
+
 export interface WooCommerceCoupon {
   id: string;
   code: string;

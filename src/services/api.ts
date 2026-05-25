@@ -132,7 +132,15 @@ export const apiService = {
   getNotes: () => 
     api.get('/admin-notes'),
   saveNotes: (content: string) => 
-    api.post('/admin-notes', { content })
+    api.post('/admin-notes', { content }),
+
+  // Tera Wallet Management API
+  getWalletTransactions: () =>
+    api.get('/wallet/transactions'),
+  createWalletTransaction: (data: { userId: string; amount: number; type: 'credit' | 'debit'; details: string }) =>
+    api.post('/wallet/transaction', data),
+  getWalletStats: () =>
+    api.get('/wallet/stats')
 };
 
 export default api;

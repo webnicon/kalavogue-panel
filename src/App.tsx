@@ -11,6 +11,7 @@ import { Coupons } from './pages/Coupons.js';
 import { Settings } from './pages/Settings.js';
 import { Logs } from './pages/Logs.js';
 import { Orders } from './pages/Orders.js';
+import { WalletPage } from './pages/Wallet.js';
 
 // Inside InnerApp we have access to useContext values
 function InnerApp() {
@@ -48,6 +49,8 @@ function InnerApp() {
         return <Orders />;
       case 'users':
         return <Users />;
+      case 'wallet':
+        return <WalletPage />;
       case 'coupons':
         return <Coupons />;
       case 'settings':

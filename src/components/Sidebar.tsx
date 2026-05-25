@@ -11,7 +11,8 @@ import {
   ChevronRight, 
   Activity, 
   Globe2,
-  Receipt
+  Receipt,
+  Wallet
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext.js';
 import { useSettings } from '../context/SettingsContext.js';
@@ -37,6 +38,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'orders', label: 'Orders', icon: Receipt },
     { id: 'products', label: 'Products', icon: ShoppingBag },
     { id: 'users', label: 'Customers', icon: Users2 },
+    { id: 'wallet', label: 'Tera Wallet', icon: Wallet },
     { id: 'coupons', label: 'Coupons', icon: Percent },
     { id: 'settings', label: 'Settings', icon: Settings2 },
     { id: 'logs', label: 'Audit Logs', icon: History }

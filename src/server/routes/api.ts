@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import axios from 'axios';
 import { LocalDB } from '../db.js';
 import { authenticateToken, requireRoles, generateToken } from '../auth.js';
-import { Product, WooCommerceUser, WooCommerceCoupon, WooCommerceOrder, PanelSettings } from '../../types.js';
+import { Product, WooCommerceUser, WooCommerceCoupon, WooCommerceOrder, PanelSettings, WalletTransaction } from '../../types.js';
 
 const router = Router();
 
@@ -1438,6 +1438,127 @@ router.post('/admin-notes', authenticateToken, (req: AuthenticatedRequest, res: 
   ];
   LocalDB.save();
   res.json({ success: true, notes: db.adminNotes });
+});
+
+// ----------------------------------------------------
+// TERA WALLET MANAGEMENT API
+// ----------------------------------------------------
+
+// Get all wallet transactions
+router.get('/wallet/transactions', authenticateToken, (req: Request, res: Response) => {
+  const db = LocalDB.get();
+  res.json({ transactions: db.walletTransactions || [] });
+});
+
+// Post a wallet transaction (Adjust Balance)
+router.post('/wallet/transaction', authenticateToken, async (req: AuthenticatedRequest, res: Response) => {
+  const { userId, amount, type, details } = req.body;
+  
+  if (!userId || amount === undefined || !type || !details) {
+    return res.status(400).json({ error: 'User ID, Amount, Type (credit/debit), and Details are required.' });
+  }
+
+  const amtNum = parseFloat(amount);
+  if (isNaN(amtNum) || amtNum <= 0) {
+    return res.status(400).json({ error: 'Transaction amount must be a positive number.' });
+  }
+
+  if (type !== 'credit' && type !== 'debit') {
+    return res.status(400).json({ error: 'Transaction type must be "credit" or "debit".' });
+  }
+
+  const db = LocalDB.get();
+  const s = db.settings;
+  
+  const userIdx = db.users.findIndex(u => u.id === userId);
+  if (userIdx === -1) {
+    return res.status(404).json({ error: 'Customer not found.' });
+  }
+
+  const customer = db.users[userIdx];
+  const oldBalance = customer.wallet_balance || 0;
+  let newBalance = oldBalance;
+
+  if (type === 'credit') {
+    newBalance = oldBalance + amtNum;
+  } else {
+    newBalance = oldBalance - amtNum;
+    if (newBalance < 0) {
+      return res.status(400).json({ error: 'Insufficient funds. Debiting would result in negative wallet balance.' });
+    }
+  }
+
+  const adminName = req.user ? req.user.username : 'admin';
+
+  // If live site is connected, let's try to update user meta_data on WooCommerce live site!
+  let liveUpdated = false;
+  if (s.siteUrl && s.consumerKey && s.consumerKey.startsWith('ck_') && !userId.startsWith('usr-')) {
+    try {
+      const client = getWooClient();
+      
+      // Update Tera Wallet user meta keys: _uw_balance and wallet_balance
+      await client.put(`customers/${userId}`, {
+        meta_data: [
+          { key: 'wallet_balance', value: String(newBalance) },
+          { key: '_uw_balance', value: String(newBalance) }
+        ]
+      });
+      liveUpdated = true;
+    } catch (err: any) {
+      console.error(`Live site customer wallet metadata update failed:`, err.message);
+      LocalDB.log('api', 'error', `Failed to sync wallet balance on live WordPress: ${err.message}`, adminName);
+    }
+  }
+
+  // Update in local DB cache
+  customer.wallet_balance = Number(newBalance.toFixed(2));
+  
+  // Register the transaction entry
+  const newTx: WalletTransaction = {
+    id: 'tx-' + Math.random().toString(36).substr(2, 9),
+    user_id: customer.id,
+    username: customer.username,
+    email: customer.email,
+    amount: amtNum,
+    type,
+    details,
+    date: new Date().toISOString(),
+    admin: adminName
+  };
+
+  db.walletTransactions = db.walletTransactions || [];
+  db.walletTransactions.unshift(newTx);
+  
+  LocalDB.save();
+
+  // Log to system auditing logs
+  const logMessage = `Boutique wallet balance for "${customer.username}" updated from ${s.currency || 'INR'} ${oldBalance.toFixed(2)} to ${s.currency || 'INR'} ${newBalance.toFixed(2)} (${type === 'credit' ? '+' : '-'}${amtNum.toFixed(2)}). Details: ${details}`;
+  LocalDB.log('user', 'info', logMessage, adminName);
+
+  res.json({
+    success: true,
+    message: 'Wallet transaction successfully registered.',
+    transaction: newTx,
+    customer,
+    syncStatus: liveUpdated ? 'Synced with live site metadata' : 'Local cached storage only'
+  });
+});
+
+// Return wallet statistics
+router.get('/wallet/stats', authenticateToken, (req: Request, res: Response) => {
+  const db = LocalDB.get();
+  
+  const activeWallets = db.users.filter(u => u.wallet_balance > 0);
+  const totalBalance = db.users.reduce((sum, u) => sum + (u.wallet_balance || 0), 0);
+  const averageBalance = db.users.length > 0 ? (totalBalance / db.users.length) : 0;
+  
+  res.json({
+    totalWallets: db.users.length,
+    activeWallets: activeWallets.length,
+    totalBalance: Number(totalBalance.toFixed(2)),
+    averageBalance: Number(averageBalance.toFixed(2)),
+    recentTransactions: (db.walletTransactions || []).slice(0, 10)
+  });
 });
 
 export default router;

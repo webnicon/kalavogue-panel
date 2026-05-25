@@ -8,7 +8,8 @@ import {
   WooCommerceCoupon, 
   WooCommerceOrder, 
   PanelSettings, 
-  SystemLog 
+  SystemLog,
+  WalletTransaction
 } from '../types.js';
 
 const DB_FILE = path.join(process.cwd(), 'src', 'server', 'db.json');
@@ -22,6 +23,7 @@ interface DatabaseSchema {
   settings: PanelSettings;
   logs: SystemLog[];
   adminNotes: { id: string; content: string; updatedAt: string; author: string }[];
+  walletTransactions: WalletTransaction[];
 }
 
 // Initial seed helper
@@ -353,6 +355,42 @@ function createSeedData(): DatabaseSchema {
     }
   ];
 
+  const walletTransactions: WalletTransaction[] = [
+    {
+      id: 'tx-401',
+      user_id: 'usr-201',
+      username: 'johndoe',
+      email: 'john.doe@gmail.com',
+      amount: 15.50,
+      type: 'credit',
+      details: 'Complaint adjustment rebate credited to boutique pocket balance',
+      date: '2026-05-24T12:00:00Z',
+      admin: 'admin'
+    },
+    {
+      id: 'tx-402',
+      user_id: 'usr-201',
+      username: 'johndoe',
+      email: 'john.doe@gmail.com',
+      amount: 50.00,
+      type: 'debit',
+      details: 'Wallet deduction debit for purchase order #WC-2026-004 checkout',
+      date: '2026-05-22T19:30:10Z',
+      admin: 'System'
+    },
+    {
+      id: 'tx-403',
+      user_id: 'usr-202',
+      username: 'karen_v',
+      email: 'vendor.karen@gmail.com',
+      amount: 250.00,
+      type: 'credit',
+      details: 'Boutique influencer consignments credit balance topup',
+      date: '2026-05-23T14:15:00Z',
+      admin: 'admin'
+    }
+  ];
+
   return {
     admins,
     products,
@@ -361,7 +399,8 @@ function createSeedData(): DatabaseSchema {
     orders,
     settings,
     logs,
-    adminNotes
+    adminNotes,
+    walletTransactions
   };
 }
 
@@ -384,6 +423,44 @@ export class LocalDB {
         this.data = JSON.parse(fileContent);
         if (this.data) {
           let updated = false;
+          if (!this.data.walletTransactions) {
+            this.data.walletTransactions = [
+              {
+                id: 'tx-401',
+                user_id: 'usr-201',
+                username: 'johndoe',
+                email: 'john.doe@gmail.com',
+                amount: 15.50,
+                type: 'credit',
+                details: 'Complaint adjustment rebate credited to boutique pocket balance',
+                date: '2026-05-24T12:00:00Z',
+                admin: 'admin'
+              },
+              {
+                id: 'tx-402',
+                user_id: 'usr-201',
+                username: 'johndoe',
+                email: 'john.doe@gmail.com',
+                amount: 50.00,
+                type: 'debit',
+                details: 'Wallet deduction debit for purchase order #WC-2026-004 checkout',
+                date: '2026-05-22T19:30:10Z',
+                admin: 'System'
+              },
+              {
+                id: 'tx-403',
+                user_id: 'usr-202',
+                username: 'karen_v',
+                email: 'vendor.karen@gmail.com',
+                amount: 250.00,
+                type: 'credit',
+                details: 'Boutique influencer consignments credit balance topup',
+                date: '2026-05-23T14:15:00Z',
+                admin: 'admin'
+              }
+            ];
+            updated = true;
+          }
           if (!this.data.settings.currency) {
             this.data.settings.currency = 'INR';
             updated = true;
